@@ -16,9 +16,9 @@ For backend, you will need to install all necessary Python `pip` packages, prefe
 
 1.) Instal Mamba, a package manager for conda with `conda install -n base -c conda-forge mamba`. Then, please create a local anaconda environment with that Python version by typing `mamba env create -f py310_env.yml` into your terminal such as powershell, as this will create the conda environment will all necessary pip packages. If this is your first time with conda, and you are using powershell, you may need to run `conda init powershell` and reopen powershell.
 
-2.) Then download this additional package after all previous dependencies are installed with `mamba install -c conda-forge mayavi`.
+2.) Then, activate your conda environment by first typing `conda activate py310`. Then download this additional package after all previous dependencies are installed with `mamba install -c conda-forge mayavi`.
 
-3.) For Imagebind, you will need to download that from github here: `https://github.com/facebookresearch/ImageBind` and unzip it within this directory, replacing the empty ImageBind folder. Then, activate your conda environment by first typing `conda activate py310`, then once activated type `cd ImageBind` and `python -m pip install -e .`. Information on the pros and cons of toggling Imagebind can be found in `About the Application` section.
+3.) For Imagebind, you will need to download that from github here: https://github.com/facebookresearch/ImageBind and unzip it within this directory, replacing the empty ImageBind folder. Then once activated type `cd ImageBind` and `python -m pip install -e .`. Information on the pros and cons of toggling Imagebind can be found in `About the Application` section.
 
 4.) Then you need to install Pytorch, and it is recommended to install it with CUDA by typing the following `pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117` as this is a  compatible Pytorch version with CUDA.
 
