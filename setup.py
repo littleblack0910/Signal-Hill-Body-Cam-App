@@ -10,22 +10,22 @@ import os
 
 def run_command(cmd, description):
     """Run a command and handle errors"""
-    print(f"🔄 {description}...")
+    print(f"[INFO] {description}...")
     try:
         result = subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
-        print(f"✅ {description} completed")
+        print(f"[SUCCESS] {description} completed")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ {description} failed: {e}")
+        print(f"[ERROR] {description} failed: {e}")
         print(f"Error output: {e.stderr}")
         return False
 
 def main():
-    print("🚀 Setting up Signal Hill Body Cam App...")
+    print("Setting up Signal Hill Body Cam App...")
     
     # Check if Python is available
     if not run_command("python --version", "Checking Python version"):
-        print("❌ Python is not installed or not in PATH")
+        print("ERROR: Python is not installed or not in PATH")
         sys.exit(1)
     
     # Create virtual environment
@@ -42,13 +42,13 @@ def main():
     
     # Install requirements
     if not run_command(f"{pip_cmd} install -r requirements.txt", "Installing Python dependencies"):
-        print("⚠️  Some packages might have failed to install, but continuing...")
+        print("WARNING: Some packages might have failed to install, but continuing...")
     
-    print("\n✅ Setup completed!")
-    print("\n📋 Next steps:")
+    print("\nSetup completed!")
+    print("\nNext steps:")
     print("1. Install Node.js dependencies: npm install")
     print("2. Start the app: npm run dev")
-    print("\n💡 To activate the virtual environment manually:")
+    print("\nTo activate the virtual environment manually:")
     if os.name == 'nt':
         print("   .\\venv\\Scripts\\Activate.ps1")
     else:
