@@ -45,17 +45,23 @@ def get_platform_choice():
 def main():
     print("Setting up Signal Hill Body Cam App...")
     
-    # Check if Python is available
-    if not run_command("python --version", "Checking Python version"):
-        print("ERROR: Python is not installed or not in PATH")
-        sys.exit(1)
+    # Check if Python is available (try python3 first, then python)
+    python_cmd = "python3"
+    if not run_command("python3 --version", "Checking Python3 version"):
+        if not run_command("python --version", "Checking Python version"):
+            print("ERROR: Python is not installed or not in PATH")
+            sys.exit(1)
+        else:
+            python_cmd = "python"
+    else:
+        python_cmd = "python3"
     
     # Get platform choice from user
     platform = get_platform_choice()
     print(f"\nSelected platform: {platform.upper()}")
     
     # Create virtual environment
-    if not run_command("python -m venv venv", "Creating virtual environment"):
+    if not run_command(f"{python_cmd} -m venv venv", "Creating virtual environment"):
         sys.exit(1)
     
     # Determine paths based on platform

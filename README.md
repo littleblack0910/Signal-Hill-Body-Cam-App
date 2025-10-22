@@ -19,6 +19,10 @@ AI-powered video classification application for law enforcement body camera foot
    ```bash
    python setup.py
    ```
+   or
+   ```bash
+   python3 setup.py
+   ```
    Choose your platform when prompted (Windows/Mac/Linux)
 
 3. **Install Node.js dependencies:**
